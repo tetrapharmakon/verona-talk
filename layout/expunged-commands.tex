@@ -1,0 +1,354 @@
+% \makeatletter
+% \def\defthm#1#2{%
+%   \newtheorem{#1}{#2}[section]%
+%   \expandafter\def\csname #1autorefname\endcsname{#2}%
+%   \expandafter\let\csname c@#1\endcsname\c@theorem}
+% \makeatother
+
+
+
+
+
+% \newcommand{\map}[5]{\[\begin{matrix} {#1}\colon & {#2} & \longrightarrow & {#3}  \\ & {#4}  & \longmapsto & {#5} & \end{matrix}\]} %mappa, da, a, ciò, in
+% \newcommand{\restr}[2]{{#1}\!\!\restriction_{#2}}
+% \newcommand{\defi}[1]{\coloneqq \{{#1}\}}
+
+% \newcommand\ksst{\preceq_\ck}
+% \newcommand\lsst{\subseteq_L}
+% \newcommand\lsdk{LS^d(\ck)}
+% \newcommand\lsnk{LS(\ck)}
+% \newcommand\slesseq{\trianglelefteq}
+% \newcommand\sgreat{\triangleright}
+% \newcommand\sgeq{\trianglerighteq}
+% \newcommand\Ind{\operatorname{Ind}}
+% \newcommand\Inj{\operatorname{Inj}}
+% \newcommand\Sat{\operatorname{Sat}}
+% \newcommand\Po{\operatorname{Po}}
+% \newcommand\Tc{\operatorname{Tc}}
+% \newcommand\Rt{\operatorname{Rt}}
+% \newcommand\Ps{\operatorname{Ps}}
+% \newcommand\Gd{\operatorname{Gd}}
+% \newcommand\sm{\operatorname{sm}} 
+% \newcommand\psh{\operatorname{psh}}
+% \newcommand\smp{\operatorname{smp}}
+% \newcommand\satl{\operatorname{{Sat}_\lambda}}
+% \newcommand\presl{\operatorname{{Pres}_\lambda}}
+% \newcommand\satm{\operatorname{{Sat}_\mu}}
+% \newcommand\Mod{\operatorname{Mod}}
+% \newcommand\Rep{\operatorname{Rep}}
+% \newcommand\Sub{\operatorname{Sub}}
+% \newcommand\Mor{\operatorname{Mor}}
+% \newcommand\Alg{\operatorname{Alg}}
+% \newcommand\Homk{\operatorname{Hom}_\ck}
+% \newcommand\HMod{\operatorname{HMod}}
+% \newcommand\Iso{\operatorname{Iso}}
+% \newcommand\op{\operatorname{op}}
+% \newcommand\id{\operatorname{id}}
+% \newcommand\Id{\operatorname{Id}}
+% \newcommand\metr{\operatorname{\bf d}}
+% \newcommand\gat{\operatorname{ga-S}}
+% \newcommand\Ex{\operatorname{Ex}}
+% \newcommand\Set{\operatorname{\bf Set}}
+% \newcommand\Met{\operatorname{\bf Met}}
+% \newcommand\Emb{\operatorname{\bf Emb}}
+% \newcommand\Str{\operatorname{\bf Str}}
+% \newcommand\mStr{\operatorname{\bf mStr}}
+% \newcommand\Ab{\operatorname{\bf Ab}}
+% \newcommand\SSet{\operatorname{\bf SSet}}
+% \newcommand\C{\operatorname{\bf C}}
+% \newcommand\Lin{\operatorname{\bf Lin}}
+% \newcommand\ACC{\operatorname{\bf ACC}}
+% \newcommand\COMB{\operatorname{\bf COMB}}
+% \newcommand\LOC{\operatorname{\bf LOC}}
+% \newcommand\CELL{\operatorname{\bf CELL}}
+% \newcommand\CMOD{\operatorname{\bf CMOD}}
+% \newcommand\Ho{\operatorname{Ho}}
+% \newcommand\dc{\operatorname{dc}}
+% \newcommand\rank{\operatorname{rank}}
+% \newcommand\Mono{\operatorname{Mono}}
+% \newcommand\mono{\operatorname{mono}}
+% \newcommand\Hor{\operatorname{Hor}}
+% \newcommand\Ins{\operatorname{Ins}}
+% \newcommand\Eq{\operatorname{Eq}}
+% \newcommand\mor{\operatorname{mor}}
+% \newcommand\epi{\operatorname{epi }}
+% \newcommand\tcof{\operatorname{tcof}}
+% \newcommand\cell{\operatorname{cell}}
+% \newcommand\colim{\operatorname{colim}}
+% \newcommand\dom{\operatorname{dom}}
+% \newcommand\cod{\operatorname{cod}}
+
+% \newcommand\Tcsh[1]{\operatorname{#1\textrm{-}Tc}}
+
+% \newenvironment{greybox}{%
+%     \def\FrameCommand{\fboxrule=\FrameRule\fboxsep=\FrameSep \fcolorbox{white}{LightGrey}}%
+%     \MakeFramed {\advance\hsize-\width \FrameRestore}}%
+%     {\endMakeFramed}
+
+% \newenvironment{whitebox}{%
+%     \def\FrameCommand{\fboxrule=\FrameRule\fboxsep=\FrameSep \fcolorbox{LightGrey}{white}}%
+%     \MakeFramed {\advance\hsize-\width \FrameRestore}}%
+%     {\endMakeFramed}
+
+
+
+% \subsection{Reassembling Morita theory: the r\^ole of ianu\ae}
+% Now its our duty to reconstruct a Cauchy completion with respect to a generic ianua $\Omega$ in our ambient category $\cK$.  
+
+% Our strategy is to observe that it is enough to give an internal definition of the subcategory of right and cocontinous adjoints. So that we recover the functor on the right in the duality above. We will discover that each ianua has its own opinion on what is an adjoint. In CAT, Set has the \textit{correct one}.
+
+% We work in two steps, first we define what is the subobject of $\Omega$-cocontinous functor in $[ [A^*, \Omega], [B^*, \Omega]]$. Then we define the subobject of right adjoints in $[ [A^*, \Omega], B^*, \Omega]$, of course with respect to $\Omega$. Then we establish the same adjunction.
+% \subsubsection{. Cocont$[ [A^*, \Omega], [B^*, \Omega]]$ is an equalizer.} When given a lax (idempotent?) monad $T$, ($[(\firstblank)^\circ, \Omega]$ in this case)  on a $2$-category  we can enrich Alg($T$) over $\cK$. In order to do so we want to define the object 
+% \[
+% \text{Cocont}_T(A,B)
+% \]
+% for each object $A,B$ in Alg($T$). Our motivating example will be the CAT case when $T$ is the monad that adds finite colimits. 
+
+% In that case, given two finitely complete categories $A,B$ one can look at coFlat($A,B)$ as a suitable equalizer.
+% In order to show it, recall that a finitely cocomplete category $A$ is a left split subobject of its completion under finite colimits $i_A: A \leftrightarrows \hat{A}: l_A$, this terminology means that the inclusion has a left adjoint and the composition $l_A \circ i_A \cong \text{id}_A$ and was introduced in \citep{accpres}. Then, 
+% \[
+% \text{Cont}_T(A,B) = \text{Eq}  \ \  \  [A,B] \rightrightarrows [\hat{A},B]. 
+% \]
+% The two parallel arrows are $\text{Lan}_{i_A}$ and $l_A^*$.  In the same fashion we define $\text{Cont}_T[A,B]$ in the general context. Recally that any equalizer comes with a map, we will call $\Theta_A^B$ the map that equalizes $\text{Lan}_{i_A}$ (o Ran?) and $l_A^*$, 
+% \[
+% \text{Cont}_T(A,B) \stackrel{\Theta_A^B}{\to}  [A,B] \rightrightarrows [\hat{A},B]. 
+% \]
+% \begin{lemma}
+% $\text{Cont}_T[A,B]$ is a right split subobjct of $[A,B]$, naturally in $A$. 
+% \end{lemma}
+% \begin{proof}
+% The map $i_A^* : [\hat{A}, B] \to [A,B]$ equalizes the pair $\text{Lan}_{i_A}$, $l_A^*$...
+% \end{proof}
+% \begin{cor}
+% There is an idempotent monad $\bot : [\firstblank, B] \to [\firstblank,B]$ whose fixed points are precisely $T$-cocontinuous functors.
+% \end{cor}
+% \subsubsection{Right$[A, B]$ comes from a pseudo-pullback.} One should never hide the concrete case from which an idea comes from. In the two category CAT one can recover right adjoints $[A,B]$ by the following pullback
+% \[
+% \begin{tikzcd}
+% \frac{\LAdj(A,B)}{\RAdj(B,A)}\celtag[pos=.1, dr]{\lrcorner} \ar[r]\ar[d] & \Cat(A,B) \ar[d]\\
+% \Cat(B,A) \ar[r] & \Cat(A\times B^\op, \Set)
+% \end{tikzcd}
+% \]
+% The ianua structure that we have on $\cK$ is enough to write the same pseudo-pullback cospan.
+% \subsection{The enrichment}
+% In definitiva, la situazione in cui ci trovavamo prima delle sottosezioni precedenti era la seguente.
+% \begin{center}
+% \begin{tikzpicture}[scale=.5]
+% \filldraw[gray!10] (1,1) ellipse (6cm and 3cm) node at (1,4.3) {{\color{black} $\CAT$}};
+% \filldraw[gray!30] (0,0) -- (0,3) arc (90:270:4cm and 2cm) -- cycle;
+% \filldraw[gray!30,xshift=2cm] (0,0) -- (0,-1) arc (270:450:4cm and 2cm) -- cycle;
+% \node (cat) at (-2,1) {$\Cat$};
+% \node (presh) at (4,1) {$\text{PSh}$};
+% \draw[->] (cat) to [bend left] node[midway, above]{$\psh{-}$} (presh);
+% \end{tikzpicture}
+% \end{center}
+% Mentre l'arricchimento che abbiamo deciso svela dà verticalità a quest'immagine piatta.
+% \begin{center}
+% \begin{tikzpicture}[yscale=.5, xscale=.75]
+% \filldraw[gray!10] (2,-3) ellipse (4cm and 2cm);
+% \filldraw[gray!30] (0,0) node[yshift=-.5cm,above] (ct) {{\color{black} $\Cat$}} -- (0,0) arc (120:300:2cm and 1cm) -- cycle;
+% \filldraw[gray!30,xshift=3cm, yshift=-1cm] (0,-1) node[yshift=.5cm,above] (ps) {{\color{black} $\text{PSh}$}} -- (0,-1) arc (300:480:2cm and 1cm) -- cycle;
+% \draw[->] (ct) to [bend left] (ps);
+% \end{tikzpicture}
+% \end{center}
+% La situazione generale in cui ci troviamo è quella di una monade relative $k \stackrel{[^*, \Omega]}{\to} \cK$, $k$ è arricchitu su $\cK$ attraverso l'hom interno di $\cK$, mentre l'immagine essenziale di $[^*, \Omega]$ è arricchita su $\cK$ tramite il seguente pullback:
+% \[
+% \begin{tikzcd}
+% \RAdj_!(\Omega^{C^\op},\Omega^{D^\op}) \ar[r]\ar[d] & \cK_!(\Omega^{C^\op},\Omega^{D^\op}) \ar[d]\\
+% \RAdj(\Omega^{C^\op},\Omega^{D^\op}) \ar[r] & \cK(\Omega^{C^\op},\Omega^{D^\op})
+% \end{tikzcd}
+% \]
+% La prima osservazione da fare è che $[^*, \Omega]$ è un funtore arricchito rispetto a questi due arricchimenti.
+% \subsection{Schizophrenic objects, proarrow equipments and YS}
+% Qui va un racconto su come queste nozioni si parlano fra loro. Non serve un teorema, serve chiarire alla gente quello che già si sa.
+
+%$$\text{Frames}^{\text{op}} \leftrightarrows \text{Localic Topoi}.$$
+%, which some how belong to both categories.
+%the geometric counterpart of sintax or, equivalently that sintax is the algebraic counterpart of semantics.
+
+%The right triangle corresponds to the composition
+% \[\notag
+% \xymatrix@R=0cm{
+% \psh{A} \ar[r] & \psh{\psh{A}} \ar[r] & \psh{A}\\
+% P \ar@{|->}[r] & (Q\mapsto \Nat(Q,P)) \ar@{|->}[r] & (a\mapsto\Nat(y_A(a),P)\cong Pa)
+% }
+% \]
+% which is again isomorphic to the identity of $\bsP A$ thanks to the Yoneda lemma.
+% \begin{remark} \label{relative}
+% It might very well be the case that the functor $\bsP_\Omega = [(\firstblank)^\circ,\Omega]: \cK^{\text{op}} \to \cK$ is not globally Janusian, as in the case of CAT. On the other hand it is Janusian with respect to the sub $2$-category cat\footnote{Small categories.}, meaning that $\bsP_\Omega = [(\firstblank)^\circ,\Omega]: \text{cat}^{\text{op}} \to \text{CAT}$ is Janusian. When $\cC$ is a $2$-subcategory of $\cK$ and the contravariant functor $\bsP_\Omega =: \cC^{\text{op}} \to \cK$ is Janusian with say that $\Omega$ is Janusian with respect to $\cC$. 
+% \end{remark}
+% \begin{remark}
+% A left Janusian object $\Omega \in \cK$ sets a sort of proarrow equipment on $\cK$ via its contravariant hom functor color{red} via the functor $\cK \to \cK$ to the 2-category $\cK$. If $\Omega$ is a cogenerator of $\cK$, we have a proarrow equipment in the original sense introduced by Wood in \citep{wood1982abstract} and \citep{wood1985proarrows}.
+% \end{remark}
+% \begin{remark}
+% The main difference between a proarrow equipment and a Yoneda structure is the presence of the yoneda embedding $y_A : A \to PA$ playing the r\^ole of the unit of a  relative pseudomonad structure for $P$. %{\color{red} This is very important in our setting, thus we will introduce some additional structure to recover that.}
+% \end{remark}
+
+% Having inverted the direction of some 1-cells makes counterintuitive the fact that a lax idempotent left Janusian monad still satisfies the equivalent conditions \eqref{l:uno}--\eqref{l:ter}; we prove that \ref{l:uno} iff \ref{l:due}; one implication is easy to rewrite: assume \ref{l:due}, then  given a square like $\fontsize{1}{4}\selectfont 
+	% \begin{tikzcd}[row sep=4mm,column sep=4mm]
+	% \bsP A \arrow[d]\ar[dr, white, "\Leftarrow"{black, description}] & \bsP B \arrow[d] \ar[l]\\
+	% A \arrow[r] & B
+	% \end{tikzcd}$ the desired cell is obtained whiskering with the unit (I'm using unideterminacy of $T$!!!)
+	% \[
+	% \begin{tikzcd}[inner sep=0pt]
+	% T A \arrow[d]\arrow[rd,phantom, "\overset{\bar f}\Leftarrow" description] & T T A \arrow[l] \arrow[d] \arrow[rd,phantom, "=" description] & T A \arrow[d] \arrow[rd,-] & TT A \arrow[d] \arrow[l] \\
+	% A \arrow[r] & T A & A \ar[ur,phantom, "\Swarrow"{black, description, near start}]\ar[r] & T A
+	% \end{tikzcd}
+	% \]
+	% Now, assume \ref{l:uno}; we must prove that $a\dashv \myeta_A$ with invertible counit. The fact that there is an isomorphism $a\cdot \myeta_A \cong 1$ comes from an algebra axiom for $a$; we must find a unit and prove zig-zag identities. 
+	% To find the unit we note that $T A$ is a $T$-algebra with $\mymu_A$ as map (a free $T$-algebra, as always), and $\myeta_A$ is an algebra morphism from $a$ to $\mymu_A$: then
+	% 	\[\begin{tikzcd}
+	% T A \ar[dr,phantom,"\Leftarrow"]\arrow[d] & T T A \arrow[l] \arrow[d] \\
+	% A \arrow[r] & T A
+	% \end{tikzcd}\]
+	% is filled by a unique 2-cell $\bar \myeta : \mymu \to \myeta\cdot a \cdot \mymu$. Now pasting
+	% \[
+	% \begin{tikzcd}
+	% T A \ar[dr,phantom,"\Leftarrow"]\arrow[d, "a"'] & T T A \ar[dr,phantom, "\scriptstyle ="{description, near start}]\arrow[l, "T \myeta"'] \arrow[d, "T\myeta"'] & T A \arrow[l, "T a"'] \arrow[ld,-] \\
+	% A \arrow[r, "\myeta"'] & T A & {}
+	% \end{tikzcd}
+	% \]
+	% we get what we want. First, thanks to algebra axioms, this is really a 2-cell $1\To \myeta_A\cdot a$. To prove the zig-zag identities, now,
+	% \[
+	% \scriptsize
+	% \begin{tikzcd}
+	% A \arrow[d, "\myeta_A"'] \arrow[rr, equal,"1"] &  & A \arrow[d, "\myeta_A"] \arrow[rdd,phantom, "="] &\arrow[rdd,phantom, "\cong"] A \arrow[r, equal,"1"] \arrow[dd, equal,"1"'] & A \arrow[dd, "\myeta_A"] \\
+	% T A \arrow[d, "a"'] & T T A \arrow[l, "T \myeta"'] \arrow[d, "T\myeta"'] & T A \arrow[l, "T a"'] \arrow[ld, equal,"1"] &  &  \\
+	% A \arrow[r, "\myeta"'] & T A &  & A \arrow[r, "\myeta_A"'] & T A
+	% \end{tikzcd}\]
+	% and
+	% \[
+	% \scriptsize
+	% \begin{tikzcd}
+	% T A \arrow[d, "a"'] & T T A \arrow[l, "T\myeta"'] \arrow[d, "T \myeta"'] & T A \arrow[l, "T a"'] \arrow[ld, equal, "1"] \arrow[rdd,phantom, "="] & \arrow[rdd,phantom, "\cong"] T A \arrow[dd, "a"'] \arrow[r, equal, "1"] & T A \arrow[dd, "a"] \\
+	% A \arrow[r, "\myeta"'] \arrow[rd, equal, "1"'] & T A \arrow[d] &  &  &  \\
+	%  & A &  & A \arrow[r, equal, "1"'] & A
+	% \end{tikzcd}
+	% \]
+	% both are valid thanks to the coherence requests on an algebra morphism. % \end{itemize}
+\end{proof}
+% Se $T : \cC^\op\to \cC$ è una monade controvariante, la sua moltiplicazione e la sua unità sono dinaturali. Ciò significa che per ogni $f : A \to B$ in $\cC$ commutano questi diagrammi
+% \[
+% \xymatrix{
+% 	A \ar[r]\ar[d]& TA & TTA \ar[d]_{\mymu_A}\ar[r]^{TTf} & TTB\ar[d]^{\mymu_B} \\
+% 	B \ar[r]& TB\ar[u]_{Tf} & TA &\ar[l]^{Tf} TB
+% }
+% \]
+% nel caso che interessa a noi, $T = \bsP$ e $\mymu = \bsP\myeta$, la commutatività del secondo segue dalla commutatività del primo.
+
+% L'assioma di associatività per $\mymu$ diventa il diagramma
+% \[
+% \xymatrix{
+% TTTA\ar[r]^{\mymu_{TA}} & TTA\ar[d]^{\mymu_A}\\
+% TTA \ar[u]^{T\mymu_A}\ar[r]_{\mymu_A}& TA
+% }
+% \]
+% Probabilmente è vero che questo quadrato commuta perché $\mymu_{TA}\crc T\mymu_A \cong 1$ come conseguenza del fatto che sono aggiunti (scrivo che questo isomorfismo è dato dall'unità $\alpha : 1 \To \mymu_{TA}\crc T\mymu_A$ in modo che $T\mymu_A\adjunct{\alpha}{\omega}\mymu_{TA}$, ma non sono sicuro di questa direzione, c'è la controvarianza di $T$ da tener da conto). 
+% \todo[inline]{Per $\bsP$ questo è vero: è una proprietà generale delle KZ?}
+% L'assioma di unità dice una cosa interessante: il fatto che
+% \[
+% \xymatrix{
+% TA \ar@{=}[dr]\ar[r]^{\myeta_{TA}} & TTA\ar[d]^\mymu \ar[r]^{T\myeta_A}& TA \ar@{=}[dl]\\
+% & TA &
+% }
+% \]
+% sia commutativo in ogni parte implica che $T\myeta_A \cong\mymu_A$ e che $\mymu_A \crc \myeta_{TA}\cong 1$; la prima è una proprietà che $\bsP$ ha e che in generale assumeremo; la seconda è la richiesta che $\myeta_{TA}\adjunct{\alpha}{\beta}\mymu_A =T\myeta_A$ con unità iso.
+
+% \begin{remark}
+% Un simile argomento mostra che $\myeta_{TA}\dashv \mymu_A$ con unità invertibile (lemma di Yoneda: si ha che l'unità è iso se e solo se vale
+% \[
+% \llambda a.Fa\mapsto \llambda G.\hom(G,F)\mapsto \llambda a.\hom(A(\firstblank,a),F)\cong Fa
+% \]
+% e questo è vero per Yoneda), e counità data da una azione sui morfismi, perché c'è una mappa canonica
+% \begin{align*}
+% \chi(F) &\to \bsP A(F, \llambda a.\chi(\hom(\firstblank,a)))\\ 
+% &\cong \int_{a\in A}\Set(Fa,\chi(\hom(\firstblank,a)))
+% \end{align*}
+% la quale viene da(l mate di) un cuneo
+% \[
+% Fa\cong \bsP A(\hom(\firstblank,a),F) \to \Set(\chi(F), \chi(\hom(\firstblank,a)))
+% \]
+% definito dall'azione $\chi^\text{ar}$ sui morfismi.
+% \end{remark}
+% \subsection{Monadi co/lax idempotenti}
+% Rammentiamo cos'è una moande lax idempotente; noi dobbiamo stretchare leggermente questa definizione, perché dobbiamo rifarci ad una tassonomia piuttosto complicata: la costruzione dei prefasci di una struttura di Yoneda è uno pseudofuntore $\bsP$ con queste proprietà:
+% \begin{enumtag}{kc}
+% 	\item \label{kc:uno} E' una monade relativa all'inclusione $j^\coop : \cA_{\bsP} \to \cK$ degli ammissibili;
+% 	\item \label{kc:due} è lax idempotente
+% 	\item \label{kc:tre} è \emph{unideterminata}, ossia $\mymu = \bsP \myeta$.
+% \end{enumtag}
+% \begin{definition}[KZ- and Y-left Janusian monads]\label{kz-and-y}
+% Ci riferiamo brevemente a un oggetto con queste tre proprietà come a una \emph{KZ-left Janusian monade}; la teoria delle strutture di Yoneda è naturalmente una fabbrica di KZ-left Janusian monadi, ma anche certe semplici KZ-doctrines sono KZ-left Janusian monadi (vero?). Ci riferiamo perciò brevemente a una KZ-left Janusian monade che sottintenda anche una struttura di Yoneda come ad una \emph{Y-left Janusian monade}.
+% \end{definition}
+% Per chiarezza, e dato che la controvarianza rende sghembi alcuni dei diagrammi di moltiplicazione, unità, algebre, e le celle di lassità di un morfismo di algebre, ricostruiamo il minimo indispensabile della teoria delle KZ-monadi con una generica KZ-left Janusian monade $\bsP$. La proprietà definiente tali monadi, come osservato per la prima volta in \cite{}, è 
+% \begin{center}
+% \begin{minipage}{.475\textwidth}
+% \begin{enumtag}{l}
+% \item \label{l:uno} for every pair of $\bsP$-algebras $a,b$ and morphism $f :A \to B$, the square $\fontsize{1}{4}\selectfont 
+% \begin{tikzcd}[row sep=4mm,column sep=4mm]
+% \bsP A \arrow[d]\ar[dr, white, "\Leftarrow"{black, description}] & \bsP B \arrow[d] \ar[l]\\
+% A \arrow[r] & B
+% \end{tikzcd}$ 
+% is filled by a unique 2-cell $\bar f : b\To f\cdot a \cdot \bsP f$
+% \item \label{l:due} $a\dashv \myeta_A$ counità iso
+% \item \label{l:ter} $\mymu\dashv \myeta \bsP$ counità iso
+% \end{enumtag}
+% % Cor. of 3: unideterminacy $\To$ $\bsP\myeta \dashv \myeta \bsP$
+% \end{minipage}%
+% \begin{minipage}{.475\textwidth}
+% \begin{enumtag}{c}
+% \item \label{c:uno} for every pair of $\bsP$-algebras $a,b$ and morphism $f :A \to B$, the square $\fontsize{1}{4}\selectfont 
+% \begin{tikzcd}[row sep=4mm,column sep=4mm]
+% \bsP A \arrow[d]\ar[dr, white, "\To"{black, description}] & \bsP B \arrow[d] \ar[l]\\
+% A \arrow[r] & B
+% \end{tikzcd}$ is filled by a unique 2-cell $\bar f : f\cdot a \cdot \bsP f\To b$
+% \item \label{c:due} $\myeta_A \dashv a$ unità iso
+% \item \label{c:ter} $\myeta \bsP\dashv \mymu$ unità iso
+% \end{enumtag}
+% % Cor. of 3: unideterminacy $\To$ $\myeta\bsP \dashv\bsP\myeta$
+% \end{minipage}
+% \end{center}
+% Dimostriamo che \ref{l:uno} iff \ref{l:due}; una implicazione è facile da copiare da Kelly-Lack, l'altra meno perché bisogna prendere in considerazione la controvarianza.
+% \begin{itemize}
+% 	\item Assumiamo \ref{l:due}; allora, dato un quadrato come $\fontsize{1}{4}\selectfont 
+% \begin{tikzcd}[row sep=4mm,column sep=4mm]
+% \bsP A \arrow[d]\ar[dr, white, "\Leftarrow"{black, description}] & \bsP B \arrow[d] \ar[l]\\
+% A \arrow[r] & B
+% \end{tikzcd}$ la cella cercata whiskera con l'unità (sto usando l'unideterminacy di $\bsP$, ma tanto a noi una dim piu generale non interessa).
+% \[
+% \begin{tikzcd}[inner sep=0pt]
+% \bsP A \arrow[d]\arrow[rd,phantom, "\overset{\bar f}\Leftarrow" description] & \bsP \bsP A \arrow[l] \arrow[d] \arrow[rd,phantom, "=" description] & \bsP A \arrow[d] \arrow[rd,-] & \bsP\bsP A \arrow[d] \arrow[l] \\
+% A \arrow[r] & \bsP A & A \ar[ur,phantom, "\Swarrow"{black, description, near start}]\ar[r] & \bsP A
+% \end{tikzcd}
+% \]
+% 	\item Assumiamo \ref{l:uno}; dobbiamo dimostrare che se esso vale, allora $a\dashv \myeta_A$ con counità invertibile. Il fatto che esista un isomorfismo $a\cdot \myeta_A \cong 1$ viene da un assioma di algebra per $a$; dobbiamo trovare un'unità e dimostrare le identità zz. Per trovare l'unità osserviamo che $\bsP A$ è una $\bsP$-algebra con struttura $\mymu_A$, e $\myeta_A$ è un morfismo di algebre da $a$ verso $\mymu_A$: allora
+% 	\[\begin{tikzcd}
+% \bsP A \ar[dr,phantom,"\Leftarrow"]\arrow[d] & \bsP \bsP A \arrow[l] \arrow[d] \\
+% A \arrow[r] & \bsP A
+% \end{tikzcd}\]
+% si riempie con un'unica 2-cella $\bar \myeta : \mymu \to \myeta\cdot a \cdot \mymu$. Il mio claim è che il pasting
+% \[
+% \begin{tikzcd}
+% \bsP A \ar[dr,phantom,"\Leftarrow"]\arrow[d, "a"'] & \bsP \bsP A \ar[dr,phantom, "\scriptstyle ="{description, near start}]\arrow[l, "\bsP \myeta"'] \arrow[d, "\bsP\myeta"'] & \bsP A \arrow[l, "\bsP a"'] \arrow[ld,-] \\
+% A \arrow[r, "\myeta"'] & \bsP A & {}
+% \end{tikzcd}
+% \]
+% fa ciò che deve. Anzitutto, per gli assiomi di algebra, è davvero una 2-cella $1\To \myeta_A\cdot a$. Poi, per dimostrare le identità zz ci avvaliamo delle uguaglianze
+% \[
+% \scriptsize
+% \begin{tikzcd}
+% A \arrow[d, "\myeta_A"'] \arrow[rr, equal,"1"] &  & A \arrow[d, "\myeta_A"] \arrow[rdd,phantom, "="] &\arrow[rdd,phantom, "\cong"] A \arrow[r, equal,"1"] \arrow[dd, equal,"1"'] & A \arrow[dd, "\myeta_A"] \\
+% \bsP A \arrow[d, "a"'] & \bsP \bsP A \arrow[l, "\bsP \myeta"'] \arrow[d, "\bsP\myeta"'] & \bsP A \arrow[l, "\bsP a"'] \arrow[ld, equal,"1"] &  &  \\
+% A \arrow[r, "\myeta"'] & \bsP A &  & A \arrow[r, "\myeta_A"'] & \bsP A
+% \end{tikzcd}\]
+% e
+% \[
+% \scriptsize
+% \begin{tikzcd}
+% \bsP A \arrow[d, "a"'] & \bsP \bsP A \arrow[l, "\bsP\myeta"'] \arrow[d, "\bsP \myeta"'] & \bsP A \arrow[l, "\bsP a"'] \arrow[ld, equal, "1"] \arrow[rdd,phantom, "="] & \arrow[rdd,phantom, "\cong"] \bsP A \arrow[dd, "a"'] \arrow[r, equal, "1"] & \bsP A \arrow[dd, "a"] \\
+% A \arrow[r, "\myeta"'] \arrow[rd, equal, "1"'] & \bsP A \arrow[d] &  &  &  \\
+%  & A &  & A \arrow[r, equal, "1"'] & A
+% \end{tikzcd}
+% \]
+% Entrambe valide per le coerenze che definiscono un morfismo lax di $\bsP$-algebre.
+% \end{itemize}

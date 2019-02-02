@@ -1,0 +1,35 @@
+#+TITLE: Bruxelles
+
+* Formal Category Theory
+** What it is and why we care about it
+
+The purpose of category theory is to try
+to describe certain general aspects of the structure of 
+mathematics. Since category theory is also part of mathematics, this
+categorical type of description should apply to it as well as
+to other parts of mathematics. Saunders Mac Lane suggested the name "Formal
+Category Theory" for this study. The basic idea is that the
+category of small categories, Cat, is a 2-category with 
+properties and that one should attempt to identify those properties
+that enable one to do the "structural parts of category theory".
+
+* Review of 2-dimensional constructions
+** Lifts, extensions
+** Characterization of adjoints 
+
+* Yoneda structures
+
+* Proarrow equipments
+
+* How to link the two
+** What is the presheaf construction
+** Definition of yosegi
+** The main theorem
+
+* Consequences
+** Representable Yoneda structure
+** Two-sided Yoneda structure
+** Isbell duality and its generalizations
+** star-autonomy of equipments
+
+* Application: a Yoneda structure on derivators

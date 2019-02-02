@@ -1,0 +1,34 @@
+\usepackage{xparse}
+
+\ExplSyntaxOn
+\NewDocumentCommand{\makeabbrev}{mmm}
+ {
+  \yoruk_makeabbrev:nnn { #1 } { #2 } { #3 }
+ }
+
+\cs_new_protected:Npn \yoruk_makeabbrev:nnn #1 #2 #3
+ {
+  \clist_map_inline:nn { #3 }
+   {
+    \cs_new_protected:cpn { #2 } { #1 { ##1 } }
+   }
+ }
+\ExplSyntaxOff
+
+\makeabbrev{\textbf}{b#1}{b,c,d,e,g,h,i,j,k,l,m,n,o,p,q,r,t,u,v,w,x,y,z,%
+              B,C,D,E,G,H,I,J,K,L,M,N,O,P,Q,R,T,U,V,W,X,Y,Z}
+
+\makeabbrev{\boldsymbol}{bs#1}{%
+    a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,%
+    A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
+
+\makeabbrev{\mathsf}{sf#1}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,%
+                           A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
+\makeabbrev{\mathfrak}{f#1}{a,b,c,d,e,f,g,h,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,%
+                             A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
+\makeabbrev{\mathcal}{c#1}{A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
+\makeabbrev{\mathbb}{s#1}{A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
+
+
+\newcommand{\mymu}{\boldsymbol{\mu}}
+\newcommand{\myeta}{\boldsymbol{\eta}}

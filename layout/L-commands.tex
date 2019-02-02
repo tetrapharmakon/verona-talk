@@ -1,0 +1,101 @@
+%per le formule nei titoli
+%-------------------------------------------------------------------------
+\makeatletter
+\g@addto@macro\bfseries{\boldmath}
+\makeatother
+%-------------------------------------------------------------------------
+
+\renewcommand{\textbf}[1]{\text{\fontseries{b}\selectfont{\upshape #1}}}
+
+\def\CAT{\mathbf{CAT}}
+\def\Cat{\mathbf{Cat}}
+\def\caat{\mathbf{cat}}
+\def\Set{\mathbf{Set}}
+\def\Ab{\mathbf{Ab}}
+
+
+\newcommand{\arXivPreprint}[1]{\href{http://arxiv.org/abs/#1}{arXiv:#1} preprint}
+
+\newlength{\seplen}
+\setlength{\seplen}{5pt}
+\newlength{\sepwid}
+\setlength{\sepwid}{.4pt}
+\def\firstblank{\,\rule{\seplen}{\sepwid}\,}
+\def\secondblank{\firstblank\llap{\raisebox{2pt}{\firstblank}}}
+
+% \DeclareDocumentEnvironment{enumtag}{m}{
+% 	\begin{enumerate}[label=\textsc{#1}\oldstylenums{\arabic*}),ref=\textsc{#1}\oldstylenums{\arabic*}]
+% 		}
+% 		{
+% 	\end{enumerate}
+% }
+
+\def\op{\text{op}}
+\def\co{\text{co}}
+\def\coop{\text{coop}}
+
+\newcommand{\celtag}[2][dr]{\ar[#1,white, "#2"{black,description}]}
+
+\def\ran{\mathrm{ran}}
+\def\Ran{\mathrm{Ran}}
+\def\RAN{\textsc{Ran}}
+\def\lan{\mathrm{lan}}
+\def\Lan{\mathrm{Lan}}
+\def\Yan{\mathrm{Yan}}
+\def\LAN{\textsc{Lan}}
+\def\rift{\mathrm{rift}}
+\def\Rift{\mathrm{Rift}}
+\def\RIFT{\textsc{Rift}}
+\def\leeft{\mathrm{lift}}
+\def\Lift{\mathrm{Lift}}
+\def\LIFT{\textsc{Lift}}
+\def\Nat{\textsf{Nat}}
+
+\newcommand{\psh}[2][\Set]{[{#2}^\op,#1]}
+
+\DeclareMathOperator{\colim}{colim}
+\def\Mod{\textsf{Mod}}
+\def\jb{\smalltriangleleft}
+
+\usepackage{turnstile}
+\newcommand{\adjunct}[2]{\nsststile{#2}{#1}}
+
+\let\xto\xrightarrow
+\def\sb{{}^\bullet\kern-.1em}
+\tikzset{commutative diagrams/.cd,arrow style=tikz,diagrams={>=stealth'}}
+\def\To{\Rightarrow}
+\def\llambda{\text{л}}
+
+\newcommand{\Nearrow}{\rotatebox[origin=c]{45}{$\Rightarrow$}}
+\newcommand{\Nwarrow}{\rotatebox[origin=c]{135}{$\Rightarrow$}}
+\newcommand{\Searrow}{\rotatebox[origin=c]{-45}{$\Rightarrow$}}
+\newcommand{\Swarrow}{\rotatebox[origin=c]{225}{$\Rightarrow$}}
+\newcommand{\Sarrow}{\rotatebox[origin=c]{-90}{$\Rightarrow$}}
+\newcommand{\Narrow}{\rotatebox[origin=c]{90}{$\Rightarrow$}}
+\def\VCAT{\cV\text{-}\CAT}
+\def\Spec{\text{Spec}}
+\newcommand{\adjani}[2]{
+\xymatrix@C=7mm{ A \ar@<4pt>[r]^{#1} \ar@{}[r]|\perp  & \ar@<4pt>[l]^{#2} B }}
+\def\Prof{\mathsf{Prof}}
+\def\yose{\left\{\begin{smallmatrix}
+		\mathrm{yosegi} \\ \mathrm{boxes}
+	\end{smallmatrix}\right\}}
+\def\yone{\left\{\begin{smallmatrix}
+		\mathrm{cocomplete}\\\mathrm{Yoneda} \\ \mathrm{structures}
+	\end{smallmatrix}\right\}}
+\def\equ{\left\{\begin{smallmatrix}
+		\mathrm{Yoneda} \\ \mathrm{equipments}
+	\end{smallmatrix}\right\}}
+\def\reladjL#1{\tensor*[^{}_{#1}]{\dashv}{}}
+\def\cf{\textsf{cf}}
+\newcommand{\crc}{\cdot}
+\def\dual{\lor}
+\def\odot{\mathop{\ooalign{$\circ$\cr$\hfil\cdot\hfil$}}}
+\newcommand{\deduction}[4]{\begin{array}{c} #1 \to #2 \\ \hline #3 \to #4 \end{array}}
+\setlength{\epigraphwidth}{0.6\textwidth}
+
+
+\newcommand{\RescaleSymbol}[2][.75]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$#2$}}}}}
+\def\myboxmin{\RescaleSymbol[.6]{\boxminus}}
+
+\def\Kl{\boldsymbol K\kern-.22em\raisebox{-.06em}{$\boldsymbol\ell$}}

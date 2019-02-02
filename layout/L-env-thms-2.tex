@@ -1,0 +1,20 @@
+\makeatletter
+\def\defthm#1#2{%
+  \newtheorem{#1}{#2}[section]%
+  \expandafter\def\csname #1autorefname\endcsname{#2}%
+  \expandafter\let\csname c@#1\endcsname\c@theorem}
+\makeatother
+
+
+\theoremstyle{definition}
+
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+    \defthm{corollary}{Corollary}
+    \defthm{proposition}{Proposition}
+    \defthm{lemma}{Lemma}
+    \defthm{claim}{Claim}
+    \defthm{definition}{Definition}
+    \defthm{defn-prop}{Definition\hyp{}Proposition}
+    \defthm{notation}{Notation}
+    \defthm{remark}{Remark}
