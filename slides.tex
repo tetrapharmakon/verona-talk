@@ -25,7 +25,7 @@
 
 \begin{frame}
 	\begin{itemize}
-		\item<1-> All I'm about to say is \alert{arXiv1901.01594}
+		\item<1-> All I'm about to say is \alert{arXiv1901.01594}, j/w Ivan Di Liberti
 		\item<2-> This circle of ideas is young; feel free to comment and join
 		\item<3-> Our original motivation was to investigate the \alert{formal category theory of derivators }.
 	\end{itemize}
@@ -91,7 +91,7 @@
 	\bigskip\onslide<+->
 	Sure you can do many things:
 	\begin{itemize}
-		\item<+-> adjunctions: pairs of 1-cells $f : X \leftrightarrows Y : g$ with \alert{co/unit};
+		\item<+-> adjunctions: pairs of 1-cells $f : X \leftrightarrows Y : g$ with \alert{co/unit} 2-cells;
 		\item<+-> monads: endo-1-cells $t : A\to A$ with \alert{multiplication} and \alert{unit};
 		\item<+-> Kan extensions;
 		\item<+-> internal fibrations\dots
@@ -101,8 +101,8 @@
 	but many other important things are missing:
 	\bigskip
 	\begin{itemize}
-		\item<+-> a ``pointwise'' formula to compute Kan extensions
-		\item<+-> equivalent characterization of adjunctions: $Y(f,1)\cong X(1,g)$
+		\item<+->[$\rhd$] a ``pointwise'' formula to compute Kan extensions
+		\item<+->[$\rhd$] equivalent characterization of adjunctions: $Y(f,1)\cong X(1,g)$
 		\item<+->[Y)] the \alert{Yoneda lemma} (representably and fibrationally)
 		\item<+->[E)] a \alert{calculus of modules} (every bimodule $M : A^\lor\times B\to S$ can be straightened to a fibration over $A^\lor\times B$)
 	\end{itemize}
@@ -193,21 +193,21 @@
 	\end{block}
 	\onslide<+->	(Exercise: properly dualize this statement)
 \end{frame}
-\begin{frame}
-	A bit of coend calculus:
-	\begin{block}{Proposition (ninja Yoneda lemma)}
-		For every presheaf $F : \cC\to \Set$, it holds
-		\[F(X) \cong \int_{A}FX^{\hom(A,X)} \qquad
-			F(X) \cong \int^A FA \times\hom(X,A)\]
-		naturally in $X$.
-	\end{block}
-	\onslide<2->
-	\begin{block}{Proposition (pointwise Kan extensions)}
-		For a diagram $\cC \xleftarrow{G} \cA \xto{F}\cB$, it holds
-		\[\Lan_GF(X)\cong \int^A \hom(GA,X)\times FA\]
-		naturally in $X$.
-	\end{block}
-\end{frame}
+% \begin{frame}
+% 	A bit of coend calculus:
+% 	\begin{block}{Proposition (ninja Yoneda lemma)}
+% 		For every presheaf $F : \cC\to \Set$, it holds
+% 		\[F(X) \cong \int_{A}FX^{\hom(A,X)} \qquad
+% 			F(X) \cong \int^A FA \times\hom(X,A)\]
+% 		naturally in $X$.
+% 	\end{block}
+% 	\onslide<2->
+% 	\begin{block}{Proposition (pointwise Kan extensions)}
+% 		For a diagram $\cC \xleftarrow{G} \cA \xto{F}\cB$, it holds
+% 		\[\Lan_GF(X)\cong \int^A \hom(GA,X)\times FA\]
+% 		naturally in $X$.
+% 	\end{block}
+% \end{frame}
 \begin{frame}
 	\Huge\centering Yoneda structures
 \end{frame}
@@ -262,13 +262,10 @@
 	\end{block}
 	\pause
 	It is enough to check that
-	\begin{align*}
-		[B,PA](N_f,G)       & \cong \int_b PA(B(f,b),Gb)             \\
-		                    & \cong \int_{ab} \Set(B(fa,b), G(b)(a)) \\
-		                    & \cong G(fa)(a)                         \\
-		[A,PA](y_A,G\crc f) & \cong \int_a PA(y_A(a), G(fa))         \\
-		                    & \cong G(fa)(a).
-	\end{align*}
+	\[
+		[B,PA](N_f,G) \cong [A,PA](y_A,G\crc f)
+	\]
+	This can be proved directly.
 \end{frame}
 \begin{frame}{In $\Cat$}
 	\begin{block}{Axiom 2}
@@ -276,12 +273,10 @@
 	\end{block}
 	\pause
 	It is enough to check that
-	\begin{align*}
-		[A,PA]\big( y_A, N_f\crc g \big) & \cong \int_{a'}[A^\op,\Set]\big(y_A{a'}, N_f\crc g(a')\big) \\
-		                                 & \cong \int_{a'}[A^\op,\Set]\big( y_A{a'}, B(f - ,ga')\big)  \\
-		                                 & \cong \int_{a'}B(fa',ga')                                   \\ &\cong [A,B](f,g)
-	\end{align*}
-	absoluteness can be checked by hand.
+	\[
+		[A,PA]\big( y_A, N_f \big) \cong [A,B](f,1)
+	\]
+	and this can be checked diretly; absoluteness can be checked by hand too.
 \end{frame}
 \begin{frame}{In $\Cat$}
 	\begin{block}{Axiom 3-4}
@@ -304,8 +299,10 @@
 		\item $\cV$-$\Cat$ (enriched categories) with the enriched Yoneda embeddings;
 		\item internal categories in a finitely complete category $\cA$;
 		\item the 2-category of pseudofunctors $\cA\to \Cat$ for a small bicategory $\cA$;
-		\item \dots
+		\item \dots and maybe the 2-category of (pre)derivators
 	\end{itemize}
+	\medskip
+	This would give an account of ``how much category theory'' is expressible in $\bf PDer$ and $\bf Der$.
 \end{frame}
 
 \begin{frame}
@@ -319,7 +316,7 @@
 			\item $p$ is such that for each 1-cell $f : A\to B$ in $\cK$ $p(f)$ has a right adjoint in $\overline{\cK}$.
 		\end{itemize}
 	\end{block}
-	\onslide<2->
+	\bigskip\onslide<2->
 	Examples: the embedding $\Cat \hookrightarrow Mod$ into the category of bimodules\fshyp{}profunctors. The embedding of $\Cat_c$ (Cauchy complete categories) in geometric morphisms of presheaf toposes.
 
 	\bigskip\onslide<3->
@@ -336,7 +333,7 @@
 	\begin{block}{Strategy}
 		\begin{enumerate}
 			\item in a Yoneda structure $\bsP$ is a functor by axiom 3-4; the correspondence $A\mapsto \bsP A$ is \alert{monad-like}
-			\item<2-> \alert{the Kleisli category of $\bsP$ equips $\cK$ with proarrows via the free part of its free-forget adjunction!}
+			\item<2-> \alert{the Kleisli category of $\bsP$ equips $\cK$ with proarrows via the free part of its free-forget adjunction}
 			\item<3-> if only it was possible to go back to a Yoneda structure\dots
 		\end{enumerate}
 	\end{block}
@@ -428,7 +425,7 @@
 \begin{frame}{Formal $\infty$-category theory}
 	Let $\mathbf{QCat}_2$ be the \alert{homotopy 2-category} of the $\mathbf{Kan}$-enriched category $\mathbf{QCat}$ of $\infty$-categories; there is an ``$\infty$-Yoneda structure'' on $\mathbf{QCat}$ that descends to a Yoneda structure on $\mathbf{QCat}_2$.
 
-	\onslide<2-> The Yoneda structure is \alert{representable} by an object $\mathbb{S}$ that \emph{classifies opfibrations}: the $\infty$-category of spaces. 
+	\onslide<2-> The Yoneda structure is \alert{representable} by an object $\mathbb{S}$ (the $\infty$-category of spaces) that \emph{classifies opfibrations}: the $\infty$-category of spaces. 
 	\[A\mapsto \mathbb{S}^{A^\op}\]
 	Every model for $(\infty,1)$-categories equivalent to $\mathbf{QCat}$ inherits the same ($\infty$-)Yoneda structure.
 \onslide<3->
@@ -436,19 +433,19 @@
 		Can do the same for other examples of $\infty$-cosmoi (also those nonequivalent to $\mathbf{QCat}$)?
 	\end{block}
 \end{frame}
-\begin{frame}
+\begin{frame}{Formal CT of derivators}
 	An enticing conjecture is that
 	\begin{block}{}
 		On the 2-category of \alert{derivators} there is a Yoneda structure that keeps track of the homotopy theory of derivators.
 	\end{block}
 	\onslide<2->
-	The yosegi it generates is represented by the derivator of spaces, which has the universal property of the ``free cocompletion of the point''. \onslide<3-> A sketch of the precise construction: consider the following diagram
+	\dots Represented by the derivator of spaces, which has the universal property of the ``free cocompletion of the point''. \onslide<3-> A sketch of the precise construction: consider the following diagram
 	\[\scriptsize\begin{tikzcd}[ampersand replacement=\&]
-			\caat \arrow[r, "\nu"] \arrow[d, "y"'] \& \Cat_\infty \arrow[r] \& \textsf{Der} \& A \arrow[r, maps to] \arrow[d, maps to] \& {\bf sSet}^{NA} \arrow[r, maps to] \& \text{Ho}({\bf sSet}^{NA}) \\
+			\caat \arrow[r, "\nu"] \arrow[d, "y"'] \& {[\caat^\op,{\bf Cat}_\infty]} \arrow[r] \& \textbf{Der} \& A \arrow[r, maps to] \arrow[d, maps to] \& {\bf sSet}^{A\times-} \arrow[r, maps to] \& \text{Ho}({\bf sSet}^{A\times-}) \\
 			{[\caat^\op,\caat]} \arrow[rru, dotted] \&  \&  \& \bsy(A) \&  \&
 		\end{tikzcd}\]
 	\onslide<4->
-	The arrow $y$ is the Yoneda embedding of small categories into small prederivators; taking the Yoneda extension of the functor $\nu : A\mapsto \textbf{sSet}^{NA}$ now we get a functor from pDer (lowercase p = small prederivators) to (presentable) $\infty$-categories, whose homotopy categories are thus derivators.
+	% The arrow $\bsy$ is the Yoneda embedding of small categories into small prederivators; taking the Yoneda extension of the functor $\nu : A\mapsto \textbf{sSet}^{NA}$ now we get a functor from pDer (lowercase p = small prederivators) to (presentable) $\infty$-categories, whose homotopy categories are thus derivators.
 \end{frame}
 \begin{frame}
 	\centering\includegraphics[width=.4\textwidth]{yoneda.png}\\
